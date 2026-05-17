@@ -5,6 +5,7 @@ add_executable(DearThemeLab
     Showcase.cpp
     EditorPanel.cpp
     Exporter.cpp
+    Presets.cpp
 )
 
 # Embed Inter-Regular.ttf as a C byte array so the font is baked into the

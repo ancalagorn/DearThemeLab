@@ -9,6 +9,7 @@
 #include <imgui.h>
 
 #include "Exporter.h"
+#include "Presets.h"
 
 // ── export state (persists across frames) ─────────────────────────────────────
 static ExportOptions s_exportOpts;
@@ -204,6 +205,24 @@ void RenderEditorPanel(ImGuiStyle& themeStyle) {
         ImGui::End();
         return;
     }
+
+    // ── Preset selector ───────────────────────────────────────────────────────
+    static int s_presetIndex = 0;
+    ImGui::SetNextItemWidth(-90.0f);
+    if (ImGui::BeginCombo("##preset", g_presets[s_presetIndex].name)) {
+        for (int i = 0; i < g_presetCount; i++) {
+            bool selected = (s_presetIndex == i);
+            if (ImGui::Selectable(g_presets[i].name, selected))
+                s_presetIndex = i;
+            if (selected)
+                ImGui::SetItemDefaultFocus();
+        }
+        ImGui::EndCombo();
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Apply", {-1.0f, 0.0f}))
+        ApplyPreset(s_presetIndex, themeStyle);
+    ImGui::Separator();
 
     if (ImGui::CollapsingHeader("Main")) RenderMainSection(themeStyle);
     if (ImGui::CollapsingHeader("Borders")) RenderBordersSection(themeStyle);

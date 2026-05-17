@@ -9,12 +9,13 @@
 
 #include "PreviewPanel.h"
 #include "EditorPanel.h"
+#include "Presets.h"
 
 void App::Init() {
     g_editorStyle = ImGui::GetStyle();
 
-    // Start the theme from ImGui's Dark baseline
-    ImGui::StyleColorsDark(&g_themeStyle);
+    // Start from the DTL Dark preset
+    ApplyPreset(0, g_themeStyle);
 }
 
 void App::OnFrame() {
