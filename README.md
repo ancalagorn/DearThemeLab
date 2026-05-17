@@ -4,6 +4,8 @@ An interactive desktop application for designing [Dear ImGui](https://github.com
 
 Adjust colors, spacing, rounding, and every other style variable with live controls, see results instantly in a themed preview panel, then export the finished theme as ready-to-paste C++ code.
 
+![DearThemeLab preview](assets/images/preview-1.png)
+
 ---
 
 ## Features
@@ -54,6 +56,9 @@ Or open the project folder in CLion and hit Run.
 2. **Edit** — expand any section in the Editor panel and adjust values. The Preview updates live.
 3. **Evaluate** — scroll through the showcase to check how the theme looks on every widget type.
 4. **Export** — open the **Export** section, configure options, then copy to clipboard or save as a `.cpp` file.
+
+   ![Export panel](assets/images/preview-2.png)
+
 5. **Use it** — paste the generated function into your project and call it once after `ImGui::CreateContext()`.
 
 ### Generated code example
